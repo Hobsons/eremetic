@@ -8,9 +8,9 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/braintree/manners"
 	"github.com/kardianos/osext"
-	"github.com/klarna/eremetic/database"
-	"github.com/klarna/eremetic/routes"
-	"github.com/klarna/eremetic/scheduler"
+	"github.com/Hobsons/eremetic/database"
+	"github.com/Hobsons/eremetic/routes"
+	"github.com/Hobsons/eremetic/scheduler"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/spf13/viper"
 )

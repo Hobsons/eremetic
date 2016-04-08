@@ -10,8 +10,8 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/klarna/eremetic/database"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/database"
+	"github.com/Hobsons/eremetic/types"
 	mesos "github.com/mesos/mesos-go/mesosproto"
 	sched "github.com/mesos/mesos-go/scheduler"
 	. "github.com/smartystreets/goconvey/convey"

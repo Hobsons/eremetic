@@ -7,7 +7,7 @@ import (
 
 	"github.com/Sirupsen/logrus"
 
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/types"
 )
 
 type callbackData struct {

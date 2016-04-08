@@ -12,8 +12,8 @@ import (
 	sched "github.com/mesos/mesos-go/scheduler"
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/klarna/eremetic/database"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/database"
+	"github.com/Hobsons/eremetic/types"
 )
 
 var (

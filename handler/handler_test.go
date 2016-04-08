@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/klarna/eremetic/database"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/database"
+	"github.com/Hobsons/eremetic/types"
 	mesos "github.com/mesos/mesos-go/mesosproto"
 	. "github.com/smartystreets/goconvey/convey"
 )

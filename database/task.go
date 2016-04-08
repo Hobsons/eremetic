@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/boltdb/bolt"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/types"
 )
 
 // PutTask stores a requested task in the database

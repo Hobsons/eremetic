@@ -6,7 +6,7 @@ import (
 
 	"github.com/Sirupsen/logrus"
 	ogle "github.com/jacobsa/oglematchers"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/types"
 	mesos "github.com/mesos/mesos-go/mesosproto"
 )
 

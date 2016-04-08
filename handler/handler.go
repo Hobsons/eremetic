@@ -13,11 +13,11 @@ import (
 
 	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/mux"
-	"github.com/klarna/eremetic/assets"
-	"github.com/klarna/eremetic/database"
-	"github.com/klarna/eremetic/formatter"
-	"github.com/klarna/eremetic/scheduler"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/assets"
+	"github.com/Hobsons/eremetic/database"
+	"github.com/Hobsons/eremetic/formatter"
+	"github.com/Hobsons/eremetic/scheduler"
+	"github.com/Hobsons/eremetic/types"
 )
 
 type ErrorDocument struct {

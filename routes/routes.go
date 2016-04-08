@@ -9,9 +9,9 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/gorilla/mux"
-	"github.com/klarna/eremetic/assets"
-	"github.com/klarna/eremetic/handler"
-	"github.com/klarna/eremetic/types"
+	"github.com/Hobsons/eremetic/assets"
+	"github.com/Hobsons/eremetic/handler"
+	"github.com/Hobsons/eremetic/types"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
