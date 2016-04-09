@@ -43,7 +43,7 @@ func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, er
 		BindingPort:      bindingPort,
 	}
 	fmt.Println("conf",conf)
-	driver := sched.NewMesosSchedulerDriver(conf)
-	fmt.Println("driver",driver)
-	return driver
+	driver, err := sched.NewMesosSchedulerDriver(conf)
+	fmt.Println("driver err",err)
+	return driver, err
 }
