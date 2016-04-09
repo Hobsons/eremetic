@@ -7,6 +7,7 @@ import (
 	mesos "github.com/mesos/mesos-go/mesosproto"
 	sched "github.com/mesos/mesos-go/scheduler"
 	"github.com/spf13/viper"
+	"fmt"
 )
 
 func getFrameworkID() *mesos.FrameworkID {
@@ -22,7 +23,11 @@ func getFrameworkID() *mesos.FrameworkID {
 func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, error) {
 	publishedAddr := net.ParseIP(viper.GetString("messenger_address"))
 	bindingPort := uint16(viper.GetInt("messenger_port"))
-
+	
+	fmt.Println("vpr_messenger_address",viper.GetString("messenger_address"), publishedAddr)
+	fmt.Println("vpr_binding_port",bindingPort)
+	fmt.Println("master",viper.GetString("master"))
+	
 	return sched.NewMesosSchedulerDriver(sched.DriverConfig{
 		Master: viper.GetString("master"),
 		Framework: &mesos.FrameworkInfo{
