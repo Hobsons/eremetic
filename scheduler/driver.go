@@ -28,7 +28,7 @@ func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, er
 	fmt.Println("vpr_binding_port",bindingPort)
 	fmt.Println("master",viper.GetString("master"))
 	
-	return sched.NewMesosSchedulerDriver(sched.DriverConfig{
+	conf := sched.DriverConfig{
 		Master: viper.GetString("master"),
 		Framework: &mesos.FrameworkInfo{
 			Id:              getFrameworkID(),
@@ -41,5 +41,9 @@ func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, er
 		BindingAddress:   net.ParseIP("0.0.0.0"),
 		PublishedAddress: publishedAddr,
 		BindingPort:      bindingPort,
-	})
+	}
+	fmt.Println("conf",conf)
+	driver := sched.NewMesosSchedulerDriver(conf)
+	fmt.Println("driver",driver)
+	return driver
 }
