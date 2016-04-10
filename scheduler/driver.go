@@ -42,7 +42,7 @@ func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, er
 		BindingAddress:   net.ParseIP("0.0.0.0"),
 		PublishedAddress: publishedAddr,
 		BindingPort:      bindingPort,
-		HostnameOverride: hostnameOverride
+		HostnameOverride: hostnameOverride,
 	}
 	fmt.Println("conf",conf)
 	driver, err := sched.NewMesosSchedulerDriver(conf)
