@@ -2,7 +2,7 @@ package scheduler
 
 import (
 	"net"
-
+	"os"
 	"github.com/golang/protobuf/proto"
 	mesos "github.com/mesos/mesos-go/mesosproto"
 	sched "github.com/mesos/mesos-go/scheduler"
@@ -23,6 +23,7 @@ func getFrameworkID() *mesos.FrameworkID {
 func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, error) {
 	publishedAddr := net.ParseIP(viper.GetString("messenger_address"))
 	bindingPort := uint16(viper.GetInt("messenger_port"))
+	hostnameOverride := os.Getenv("HOST")
 	
 	fmt.Println("vpr_messenger_address",viper.GetString("messenger_address"), publishedAddr)
 	fmt.Println("vpr_binding_port",bindingPort)
@@ -41,6 +42,7 @@ func createDriver(scheduler *eremeticScheduler) (*sched.MesosSchedulerDriver, er
 		BindingAddress:   net.ParseIP("0.0.0.0"),
 		PublishedAddress: publishedAddr,
 		BindingPort:      bindingPort,
+		HostnameOverride: hostnameOverride
 	}
 	fmt.Println("conf",conf)
 	driver, err := sched.NewMesosSchedulerDriver(conf)
