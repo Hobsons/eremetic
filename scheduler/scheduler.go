@@ -81,7 +81,8 @@ func (s *eremeticScheduler) Reregistered(driver sched.SchedulerDriver, masterInf
 
 // Disconnected is called when the Scheduler is Disconnected
 func (s *eremeticScheduler) Disconnected(sched.SchedulerDriver) {
-	logrus.Debugf("Framework disconnected with master")
+	logrus.Debugf("Framework disconnected with master, triggering scheduler stop")
+	s.Stop()
 }
 
 // ResourceOffers handles the Resource Offers
