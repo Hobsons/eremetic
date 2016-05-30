@@ -55,6 +55,8 @@ func AddTask(sched types.Scheduler) http.HandlerFunc {
 			handleError(err, w, "Unable to parse body into a valid request.")
 			return
 		}
+		
+		fmt.Println("Got Request:",request)
 
 		taskID, err := sched.ScheduleTask(request)
 		if err != nil {
