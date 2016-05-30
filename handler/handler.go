@@ -49,6 +49,8 @@ func AddTask(sched types.Scheduler) http.HandlerFunc {
 			handleError(err, w, "Unable to read payload.")
 			return
 		}
+		
+		fmt.Println("Raw Request Body:",string(body))
 
 		err = json.Unmarshal(body, &request)
 		if err != nil {
