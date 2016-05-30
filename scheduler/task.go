@@ -7,6 +7,7 @@ import (
 	"github.com/Hobsons/eremetic/types"
 	mesos "github.com/mesos/mesos-go/mesosproto"
 	"github.com/mesos/mesos-go/mesosutil"
+	"fmt"
 )
 
 var (
@@ -100,6 +101,7 @@ func createTaskInfo(task types.EremeticTask, offer *mesos.Offer) (types.Eremetic
 			mesosutil.NewScalarResource("mem", task.TaskMem),
 		},
 	}
+	fmt.Println(taskInfo)
 
 	return task, taskInfo
 }
