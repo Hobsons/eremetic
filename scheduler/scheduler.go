@@ -46,7 +46,14 @@ func (s *eremeticScheduler) Reconcile(driver sched.SchedulerDriver) {
 }
 
 func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer) (types.EremeticTask, *mesos.TaskInfo) {
-	return createTaskInfo(spec, offer)
+	task, taskInfo := createTaskInfo(spec, offer)
+	fmt.Println("New task id:",taskInfo.TaskId.GetValue())
+	fmt.Println("Command:",taskInfo.GetCommand())
+	fmt.Println("Container:",taskInfo.GetContainer())
+	if taskInfo.TaskId.GetValue() == "" {
+		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
+	}
+	return task, taskInfo
 }
 
 // Registered is called when the Scheduler is Registered
