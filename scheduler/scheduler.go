@@ -14,6 +14,7 @@ import (
 
 	"github.com/Hobsons/eremetic/database"
 	"github.com/Hobsons/eremetic/types"
+	"strings"
 )
 
 var (
@@ -50,7 +51,7 @@ func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer)
 	fmt.Println("New task id:",taskInfo.TaskId.GetValue())
 	fmt.Println("Command:",taskInfo.GetCommand())
 	fmt.Println("Container:",taskInfo.GetContainer())
-	if taskInfo.TaskId.GetValue() == "" {
+	if strings.TrimSpace(taskInfo.TaskId.GetValue()) == "" {
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
 	}
 	return task, taskInfo
