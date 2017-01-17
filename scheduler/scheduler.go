@@ -53,6 +53,7 @@ func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer)
 	fmt.Println("Container:",taskInfo.GetContainer())
 	if strings.TrimSpace(taskInfo.TaskId.GetValue()) == "" {
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
+		s.Stop()
 	}
 	return task, taskInfo
 }
