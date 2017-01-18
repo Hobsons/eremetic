@@ -21,6 +21,7 @@ var (
 	defaultFilter = &mesos.Filters{RefuseSeconds: proto.Float64(10)}
 	maxRetries    = 5
 	ErrQueueFull  = errors.New("task queue is full")
+	numBadTaskID  = 0
 )
 
 // eremeticScheduler holds the structure of the Eremetic Scheduler
@@ -52,8 +53,10 @@ func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer)
 	fmt.Println("Command:",taskInfo.GetCommand())
 	fmt.Println("Container:",taskInfo.GetContainer())
 	if strings.TrimSpace(taskInfo.TaskId.GetValue()) == "" {
+		numBadTaskID += 1
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
-		s.Stop()
+		fmt.Println("This was time",numBadTaskID)
+		//s.Stop()
 	}
 	return task, taskInfo
 }
