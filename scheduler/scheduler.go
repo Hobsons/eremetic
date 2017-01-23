@@ -56,7 +56,9 @@ func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer)
 		numBadTaskID += 1
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
 		fmt.Println("This was time",numBadTaskID)
-		//s.Stop()
+		if numBadTaskID > 10 {
+			s.Stop()
+		}
 	}
 	return task, taskInfo
 }
