@@ -5,7 +5,8 @@ import (
 	"errors"
 	"fmt"
 	"time"
-
+	"os"
+	"strconv"
 	"github.com/Sirupsen/logrus"
 	"github.com/golang/protobuf/proto"
 	mesos "github.com/mesos/mesos-go/mesosproto"
@@ -56,8 +57,12 @@ func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer)
 		numBadTaskID += 1
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
 		fmt.Println("This was time",numBadTaskID)
-		if numBadTaskID > 10 {
-			s.Stop()
+		stopNum := os.Getenv("STOP_NUM_BAD_TASK_ID")
+		if len(stopNum) > 0 {
+			stopNum, _ := strconv.Atoi(stopNum)
+			if numBadTaskID > stopNum {
+				s.Stop()
+			}
 		}
 	}
 	return task, taskInfo
