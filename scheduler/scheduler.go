@@ -208,7 +208,7 @@ func (s *eremeticScheduler) StatusUpdate(driver sched.SchedulerDriver, status *m
 		Time:   time.Now().Unix(),
 	})
 
-	if shouldRetry {
+	if shouldRetry && id != "" {
 		logrus.WithField("task_id", id).Info("Re-scheduling task that never ran.")
 		task.UpdateStatus(types.Status{
 			Status: mesos.TaskState_TASK_STAGING.String(),
