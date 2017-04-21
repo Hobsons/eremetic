@@ -50,7 +50,7 @@ func AddTask(sched types.Scheduler) http.HandlerFunc {
 			return
 		}
 		
-		fmt.Println("Raw Request Body:",string(body))
+		//fmt.Println("Raw Request Body:",string(body))
 
 		err = json.Unmarshal(body, &request)
 		if err != nil {
@@ -58,7 +58,7 @@ func AddTask(sched types.Scheduler) http.HandlerFunc {
 			return
 		}
 		
-		fmt.Println("Got Request:",request)
+		//fmt.Println("Got Request:",request)
 
 		taskID, err := sched.ScheduleTask(request)
 		if err != nil {

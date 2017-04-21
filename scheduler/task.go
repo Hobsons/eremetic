@@ -101,7 +101,7 @@ func createTaskInfo(task types.EremeticTask, offer *mesos.Offer) (types.Eremetic
 			mesosutil.NewScalarResource("mem", task.TaskMem),
 		},
 	}
-	fmt.Println(taskInfo)
+	//fmt.Println(taskInfo)
 
 	return task, taskInfo
 }

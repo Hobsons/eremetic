@@ -51,8 +51,8 @@ func (s *eremeticScheduler) Reconcile(driver sched.SchedulerDriver) {
 func (s *eremeticScheduler) newTask(spec types.EremeticTask, offer *mesos.Offer) (types.EremeticTask, *mesos.TaskInfo) {
 	task, taskInfo := createTaskInfo(spec, offer)
 	fmt.Println("New task id:",taskInfo.TaskId.GetValue())
-	fmt.Println("Command:",taskInfo.GetCommand())
-	fmt.Println("Container:",taskInfo.GetContainer())
+	//fmt.Println("Command:",taskInfo.GetCommand())
+	//fmt.Println("Container:",taskInfo.GetContainer())
 	if strings.TrimSpace(taskInfo.TaskId.GetValue()) == "" {
 		numBadTaskID += 1
 		fmt.Println("Created Task with NO ID, should probably exit!!!!!")
